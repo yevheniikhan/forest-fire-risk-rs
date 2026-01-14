@@ -1,2 +1,47 @@
-# forest-fire-risk-rs
-Risk-oriented framework for enhancing forest resilience to wildfires and climate change using remote sensing data (MODIS, Planet)
+# Forest Fire Risk RS
+
+**Система аналізу ризику лісових пожеж в Україні**
+
+Google Colab ноутбук для завантаження супутникових знімків Planet та даних пожеж NASA FIRMS.
+
+## Можливості
+
+- **Вибір області** - всі області України з GeoBoundaries API
+- **Три режими роботи:**
+  - Вся область - завантаження Planet знімків для всієї області
+  - Зона інтересу - завантаження для власного GeoJSON/KML/SHP
+  - Території з пожежами - автоматичне виявлення пожеж через FIRMS та завантаження знімків
+- **Порівняльний аналіз** - автоматичне завантаження знімків за попередні місяці та попередній рік
+- **Кластеризація пожеж** - групування точок горіння в кластери для аналізу
+
+## Джерела даних
+
+- **NASA FIRMS** - Near Real-Time та Standard Processing дані про пожежі (MODIS, VIIRS)
+- **Planet Labs Basemaps** - місячні мозаїки супутникових знімків
+- **GeoBoundaries** - адміністративні межі областей України
+
+## Використання
+
+1. Відкрийте `forest_fire_risk.ipynb` в Google Colab
+2. Запустіть всі клітинки
+3. Введіть API ключі (Planet, FIRMS)
+4. Оберіть область та режим роботи
+5. Натисніть "Перевірити" для перегляду кількості пожеж
+6. Натисніть "Завантажити" для початку завантаження
+
+## API ключі
+
+- [Planet API Key](https://www.planet.com/account/)
+- [FIRMS MAP Key](https://firms.modaps.eosdis.nasa.gov/api/map_key/)
+
+## Вихідні файли
+
+- `firms_fire_data.geojson` - точки пожеж
+- `fire_clusters.geojson` - кластери пожеж з кількістю точок
+- `oblast_boundary.geojson` - межі області
+- `*.tif` - Planet знімки
+- `download_log.txt` - лог сесії
+
+## Ліцензія
+
+MIT
